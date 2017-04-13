@@ -49,6 +49,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -176,9 +184,24 @@
     <Compile Include="Migrations\201704091518392_SchoolContext.Designer.cs">
       <DependentUpon>201704091518392_SchoolContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704131359432_maxLengthOnStudentName.cs" />
+    <Compile Include="Migrations\201704131359432_maxLengthOnStudentName.Designer.cs">
+      <DependentUpon>201704131359432_maxLengthOnStudentName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704131403208_columnFirstName.cs" />
+    <Compile Include="Migrations\201704131403208_columnFirstName.Designer.cs">
+      <DependentUpon>201704131403208_columnFirstName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704131542389_UpdateAndModifyModels.cs" />
+    <Compile Include="Migrations\201704131542389_UpdateAndModifyModels.Designer.cs">
+      <DependentUpon>201704131542389_UpdateAndModifyModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Enrollment.cs" />
+    <Compile Include="Models\Instructor.cs" />
+    <Compile Include="Models\OfficeAssignment.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -186,6 +209,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -238,6 +262,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -253,6 +278,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704091518392_SchoolContext.resx">
       <DependentUpon>201704091518392_SchoolContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704131359432_maxLengthOnStudentName.resx">
+      <DependentUpon>201704131359432_maxLengthOnStudentName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704131403208_columnFirstName.resx">
+      <DependentUpon>201704131403208_columnFirstName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704131542389_UpdateAndModifyModels.resx">
+      <DependentUpon>201704131542389_UpdateAndModifyModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

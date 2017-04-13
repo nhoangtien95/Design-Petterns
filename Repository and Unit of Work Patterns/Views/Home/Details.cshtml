@@ -1,0 +1,40 @@
+﻿@model Repository_and_Unit_of_Work_Patterns.Models.Student
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="display-label">
+    @Html.DisplayNameFor(model => model.LastName)
+</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.LastName)
+</div>
+<div class="display-label">
+    @Html.DisplayNameFor(model => model.FirstMidName)
+</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.FirstMidName)
+</div><div class="display-label">
+    @Html.DisplayNameFor(model => model.EnrollmentDate)
+</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.EnrollmentDate)
+</div>
+<br /> <br />
+@foreach (var item in Model.Enrollments)
+{
+    <div class="display-label">
+        @Html.DisplayNameFor(model => item.Course.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => item.Course.Title)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => item.Grade)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => item.Grade)
+    </div>
+}

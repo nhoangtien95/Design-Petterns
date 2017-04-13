@@ -1,20 +1,22 @@
-﻿@{
+﻿@model PagedList.IPagedList<Repository_and_Unit_of_Work_Patterns.Models.Student>
+@using PagedList.Mvc; 
+@{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var student = ViewBag.student as List<Repository_and_Unit_of_Work_Patterns.Models.Student>;
+    var student = ViewBag.student as PagedList.IPagedList<Repository_and_Unit_of_Work_Patterns.Models.Student>;
 }
 
 
 <table>
     <tr>
         <th>
-            LastNam
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
             FirstMidName
         </th>
         <th>
-           EnrollmentDate
+           @Html.ActionLink("Enrollment Date", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
         <th></th>
     </tr>
@@ -32,9 +34,9 @@
                 @Html.DisplayFor(modelItem => item.EnrollmentDate)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.StudentID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
+                @Html.ActionLink("Edit", "Edit", "Home", new { id = item.StudentID }, null) |
+                @Html.ActionLink("Details", "Details", "Home", new { id = item.StudentID }, null) |
+                @Html.ActionLink("Delete", "Delete", "Home", new { id = item.StudentID }, null)
             </td>
         </tr>
     }
@@ -50,3 +52,8 @@
             </div>
         </section>
     }
+
+
+Page @(student.PageCount < student.PageNumber ? 0 : student.PageNumber) of @student.PageCount
+
+@Html.PagedListPager(student, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
